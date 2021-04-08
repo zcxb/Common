@@ -17,7 +17,7 @@ namespace Common.Ddd.Domain.Entities.Auditing
     }
 
     [Serializable]
-    public abstract class FullAuditedEntity<TKey, TUserId> : AuditedEntity<TKey, TUserId>, IFullAuditedObject<TUserId>
+    public abstract class FullAuditedEntity<TUserId, TKey> : AuditedEntity<TUserId, TKey>, IFullAuditedObject<TUserId>
         where TUserId : struct
     {
         public virtual bool IsDeleted { get; set; }

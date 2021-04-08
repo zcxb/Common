@@ -15,13 +15,13 @@ namespace Common.Ddd.Domain.Entities.Auditing
     }
 
     [Serializable]
-    public abstract class CreationAuditedEntity<TKey, TUserId> : Entity<TKey>, ICreationAuditedObject<TUserId>
+    public abstract class CreationAuditedEntity<TUserId, TKey> : Entity<TKey>, ICreationAuditedObject<TUserId>
         where TUserId : struct
     {
         public virtual DateTime CreationTime { get; protected set; }
 
         public virtual TUserId? CreatorId { get; protected set; }
-        
+
         protected CreationAuditedEntity()
         {
 

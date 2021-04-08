@@ -15,7 +15,7 @@ namespace Common.Ddd.Domain.Entities.Auditing
     }
 
     [Serializable]
-    public abstract class AuditedEntity<TKey, TUserId> : CreationAuditedEntity<TKey, TUserId>, IAuditedObject<TUserId>
+    public abstract class AuditedEntity<TUserId, TKey> : CreationAuditedEntity<TUserId, TKey>, IAuditedObject<TUserId>
         where TUserId : struct
     {
         public virtual TUserId? LastModifierId { get; set; }

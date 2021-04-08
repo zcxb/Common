@@ -17,7 +17,7 @@ namespace Common.Ddd.Domain.Entities.Auditing
     }
 
     [Serializable]
-    public abstract class FullAuditedAggregateRoot<TKey, TUserId> : AuditedAggregateRoot<TKey, TUserId>, IFullAuditedObject<TUserId>
+    public abstract class FullAuditedAggregateRoot<TUserId, TKey> : AuditedAggregateRoot<TUserId, TKey>, IFullAuditedObject<TUserId>
         where TUserId : struct
     {
         public bool IsDeleted { get; set; }

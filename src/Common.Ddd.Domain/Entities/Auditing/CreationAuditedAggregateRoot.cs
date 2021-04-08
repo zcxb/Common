@@ -14,7 +14,7 @@ namespace Common.Ddd.Domain.Entities.Auditing
         public TUserId? CreatorId { get; protected set; }
     }
 
-    public abstract class CreationAuditedAggregateRoot<TKey, TUserId> : AggregateRoot<TKey>, ICreationAuditedObject<TUserId>
+    public abstract class CreationAuditedAggregateRoot<TUserId, TKey> : AggregateRoot<TKey>, ICreationAuditedObject<TUserId>
         where TUserId : struct
     {
         public DateTime CreationTime { get; protected set; }

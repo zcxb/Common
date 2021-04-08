@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common.Auditing\Common.Auditing.csproj" />
+    <ProjectReference Include="..\Common.ExceptionHandling\Common.ExceptionHandling.csproj" />
   </ItemGroup>
 
 </Project>
