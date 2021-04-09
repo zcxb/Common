@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Ddd.Domain.Entities.Auditing
+namespace Common.Domain.Entities.Auditing
 {
     [Serializable]
-    public abstract class AuditedAggregateRoot<TUserId> : CreationAuditedAggregateRoot<TUserId>, IAuditedObject<TUserId>
+    public abstract class AuditedEntity<TUserId> : CreationAuditedEntity<TUserId>, IAuditedObject<TUserId>
         where TUserId : struct
     {
         public virtual TUserId? LastModifierId { get; set; }
@@ -15,19 +15,19 @@ namespace Common.Ddd.Domain.Entities.Auditing
     }
 
     [Serializable]
-    public abstract class AuditedAggregateRoot<TUserId, TKey> : CreationAuditedAggregateRoot<TUserId, TKey>, IAuditedObject<TUserId>
+    public abstract class AuditedEntity<TUserId, TKey> : CreationAuditedEntity<TUserId, TKey>, IAuditedObject<TUserId>
         where TUserId : struct
     {
         public virtual TUserId? LastModifierId { get; set; }
 
         public virtual DateTime? LastModificationTime { get; set; }
 
-        protected AuditedAggregateRoot()
+        protected AuditedEntity()
         {
 
         }
 
-        protected AuditedAggregateRoot(TKey id)
+        protected AuditedEntity(TKey id)
             : base(id)
         {
 

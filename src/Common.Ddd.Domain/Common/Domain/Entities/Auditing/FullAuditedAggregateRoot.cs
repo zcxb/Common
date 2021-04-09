@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Ddd.Domain.Entities.Auditing
+namespace Common.Domain.Entities.Auditing
 {
     [Serializable]
     public abstract class FullAuditedAggregateRoot<TUserId> : AuditedAggregateRoot<TUserId>, IFullAuditedObject<TUserId>

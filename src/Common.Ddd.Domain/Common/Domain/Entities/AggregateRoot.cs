@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Ddd.Domain.Entities
+namespace Common.Domain.Entities
 {
     [Serializable]
     public abstract class AggregateRoot : Entity, IAggregateRoot

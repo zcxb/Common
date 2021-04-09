@@ -1,16 +1,16 @@
-﻿using Common.Ddd.Domain.Entities;
+﻿using Common.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Common.Ddd.Domain.Repositories
+namespace Common.Domain.Repositories
 {
     public interface IReadOnlyBasicRepository<TEntity> : IRepository
         where TEntity : class, IEntity
     {
-        Task<long> CountAsync(CancellationToken cancellationToken = default);
+        Task<long> GetCountAsync(CancellationToken cancellationToken = default);
     }
 
     public interface IReadOnlyBasicRepository<TEntity, TKey> : IReadOnlyBasicRepository<TEntity>

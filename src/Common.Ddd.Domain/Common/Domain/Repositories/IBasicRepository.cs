@@ -1,11 +1,11 @@
-﻿using Common.Ddd.Domain.Entities;
+﻿using Common.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Common.Ddd.Domain.Repositories
+namespace Common.Domain.Repositories
 {
     public interface IBasicRepository<TEntity> : IReadOnlyBasicRepository<TEntity>
         where TEntity : class, IEntity
