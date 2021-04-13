@@ -5,8 +5,4 @@
     <RootNamespace />
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Common.Data\Common.Data.csproj" />
-  </ItemGroup>
-
 </Project>

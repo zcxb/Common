@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Common.Auditing
+namespace Common.Data
 {
     public interface ISoftDelete
     {
