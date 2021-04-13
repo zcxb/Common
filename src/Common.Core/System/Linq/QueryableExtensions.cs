@@ -12,5 +12,16 @@ namespace Common.Linq
         {
             return condition ? query.Where(predicate) : query;
         }
+
+        public static IQueryable<T> PageByOffset<T>(this IQueryable<T> query, int skipCount, int maxResultCount)
+        {
+            return query.Skip(skipCount).Take(maxResultCount);
+        }
+
+        public static IQueryable<T> PageByNumber<T>(this IQueryable<T> query, int pageNumber, int pageSize)
+        {
+            var (skipCount, maxResultCount) = ((pageNumber - 1) * pageSize, pageSize);
+            return query.PageByOffset(skipCount, maxResultCount);
+        }
     }
 }
