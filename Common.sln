@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4CEF0969-826
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Core", "src\Common.Core\Common.Core.csproj", "{1948E101-E09F-47C9-8A1F-25F0CACF3A88}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Ddd.Application.Contracts", "src\Common.Application.Contracts\Common.Ddd.Application.Contracts.csproj", "{AE20853D-C4F9-455E-827F-17038B120EBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Ddd.Application.Contracts", "src\Common.Ddd.Application.Contracts\Common.Ddd.Application.Contracts.csproj", "{AE20853D-C4F9-455E-827F-17038B120EBB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Auditing", "src\Common.Auditing\Common.Auditing.csproj", "{DA5C0CD8-2426-4059-8015-E3E56556E3A2}"
 EndProject
