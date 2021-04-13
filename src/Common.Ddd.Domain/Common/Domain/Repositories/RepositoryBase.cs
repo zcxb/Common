@@ -8,5 +8,6 @@ namespace Common.Domain.Repositories
     public abstract class RepositoryBase<TEntity> : BasicRepositoryBase<TEntity>, IRepository<TEntity>
         where TEntity : class, IEntity
     {
+
     }
 }

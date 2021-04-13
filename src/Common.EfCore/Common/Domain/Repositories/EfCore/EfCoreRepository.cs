@@ -1,5 +1,6 @@
 ﻿using Common.Domain.Entities;
 using Common.EfCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Common.Domain.Repositories.EfCore
 {
-    public class EfCoreRepository<TDbContext, TEntity> : RepositoryBase<TEntity>
+    public class EfCoreRepository<TDbContext, TEntity> :
+        RepositoryBase<TEntity>,
+        IEfCoreRepository<TEntity>
+
         where TDbContext : IEfCoreDbContext
         where TEntity : class, IEntity
     {
@@ -47,10 +51,50 @@ namespace Common.Domain.Repositories.EfCore
         {
             return _dbContextProvider.GetDbContextAsync();
         }
-    }
 
-    public class EfCoreRepository<TDbContext, TEntity, TKey>
+        async Task<DbContext> IEfCoreRepository<TEntity>.GetDbContextAsync()
+        {
+            return await GetDbContextAsync() as DbContext;
+        }
+
+        protected async Task<DbSet<TEntity>> GetDbSetAsync()
+        {
+            return (await GetDbContextAsync()).Set<TEntity>();
+        }
+
+        Task<DbSet<TEntity>> IEfCoreRepository<TEntity>.GetDbSetAsync()
+        {
+            return GetDbSetAsync();
+        }
+    }
+    public class EfCoreRepository<TDbContext, TEntity, TKey> :
+        EfCoreRepository<TDbContext, TEntity>,
+        IEfCoreRepository<TEntity, TKey>
+
+        where TDbContext : IEfCoreDbContext
+        where TEntity : class, IEntity<TKey>
     {
+        public EfCoreRepository(IDbContextProvider<TDbContext> dbContextProvider)
+            : base(dbContextProvider)
+        {
+        }
 
+        public async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken = default)
+        {
+            var entity = await FindAsync(id, cancellationToken);
+
+            if (entity == null)
+            {
+                throw new EntityNotFoundException(typeof(TEntity), id);
+            }
+
+            return entity;
+        }
+
+        public async Task<TEntity> FindAsync(TKey id, CancellationToken cancellationToken = default)
+        {
+            return await (await GetDbSetAsync()).FindAsync(new object[] { id }, cancellationToken);
+        }
     }
+
 }

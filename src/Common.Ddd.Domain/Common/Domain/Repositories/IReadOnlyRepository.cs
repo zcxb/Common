@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Common.Domain.Repositories
 {
-    public interface IReadOnlyRepository<TEntity> : IQueryable<TEntity>, IReadOnlyBasicRepository<TEntity>
+    public interface IReadOnlyRepository<TEntity> : IReadOnlyBasicRepository<TEntity>
         where TEntity : class, IEntity
     {
     }
