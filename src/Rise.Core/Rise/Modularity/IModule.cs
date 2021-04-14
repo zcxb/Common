@@ -6,6 +6,6 @@ namespace Rise.Modularity
 {
     public interface IModule
     {
-        void ConfigureServices();
+        void ConfigureServices(ServiceConfigurationContext context);
     }
 }

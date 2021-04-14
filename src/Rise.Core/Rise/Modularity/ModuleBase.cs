@@ -7,7 +7,7 @@ namespace Rise.Modularity
 {
     public abstract class ModuleBase : IModule
     {
-        public virtual void ConfigureServices()
+        public virtual void ConfigureServices(ServiceConfigurationContext context)
         {
         }
     }
