@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Rise.Auditing\Rise.Auditing.csproj" />
     <ProjectReference Include="..\Rise.ExceptionHandling\Rise.ExceptionHandling.csproj" />
+    <ProjectReference Include="..\Rise.Threading\Rise.Threading.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Rise.Domain.Entities;
+using Rise.Threading;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,8 @@ namespace Rise.Domain.Repositories
         IBasicRepository<TEntity>
         where TEntity : class, IEntity
     {
+        public ICancellationTokenProvider CancellationTokenProvider;
+
         protected BasicRepositoryBase()
         {
 
