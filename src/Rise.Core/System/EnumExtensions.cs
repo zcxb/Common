@@ -18,7 +18,22 @@ namespace System
         public static string GetDescription(this Enum enumValue)
         {
             var descriptionAttr = enumValue.GetAttribute<DescriptionAttribute>();
-            return descriptionAttr != null ? descriptionAttr.Description : null;
+            return descriptionAttr?.Description;
+        }
+
+        public static T ToEnumValue<T>(this string description)
+            where T : Enum
+        {
+            var values = Enum.GetValues(typeof(T));
+            foreach (T value in values)
+            {
+                if (description.Equals(value.GetDescription()))
+                {
+                    return value;
+                }
+            }
+
+            throw new BizException("invalid enum value");
         }
     }
 }
