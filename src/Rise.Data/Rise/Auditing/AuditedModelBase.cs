@@ -7,6 +7,12 @@ namespace Rise.Auditing
 {
     public abstract class AuditedModelBase : ISoftDelete
     {
+        public virtual int Id { get; set; }
+
         public bool IsDeleted { get; set; }
+
+        public DateTime InsertedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 }

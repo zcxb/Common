@@ -2,9 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+    <Authors>zcxb</Authors>
+    <RepositoryUrl>https://github.com/zcxb/rise</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>0.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="$(MicrosoftPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rise.Core\Rise.Core.csproj" />
     <ProjectReference Include="..\Rise.Data\Rise.Data.csproj" />
   </ItemGroup>
 
