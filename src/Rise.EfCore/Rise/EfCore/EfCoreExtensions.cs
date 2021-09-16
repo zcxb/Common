@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Linq.Expressions;
 
 namespace Rise.EfCore
 {
@@ -20,6 +21,12 @@ namespace Rise.EfCore
         {
             var entities = set.Where(i => keyValues.Contains(i.Id));
             set.RemoveRange(entities);
+        }
+
+        public static void RemoveRange<TEntity>(this DbSet<TEntity> set, Expression<Func<TEntity, bool>> predicate)
+            where TEntity : AuditedModelBase
+        {
+            set.RemoveRange(set.Where(predicate));
         }
     }
 }
